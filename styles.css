@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #0f172a; /* dark background */
+  background: #070c32; /* dark background */
   color: #f1f5f9; /* lighter text */
   line-height: 1.6;
 }
@@ -16,7 +16,7 @@ body {
 
 /* Header */
 header {
-  border-bottom: 1px solid #334155; /* subtle divider */
+  border-bottom: 1px solid #000000; /* subtle divider */
   background: #0f172a;
   position: sticky;
   top: 0;
@@ -86,17 +86,17 @@ nav a:hover {
 }
 
 .button.secondary {
-  background: #334155;
+  background: #000000;
 }
 
 .button.secondary:hover {
-  background: #475569;
+  background: #160067;
 }
 
 /* Sections */
 .section {
   padding: 50px 0;
-  border-top: 1px solid #334155;
+  border-top: 1px solid #000000;
 }
 
 .section h2,
@@ -124,7 +124,7 @@ nav a:hover {
 /* Cards */
 .box {
   padding: 20px;
-  border: 1px solid #334155;
+  border: 1px solid #000000;
   border-radius: 8px;
   background: #1e293b;
 }
@@ -134,12 +134,12 @@ nav a:hover {
   width: 100%;
   margin-top: 20px;
   border-radius: 8px;
-  border: 2px solid #334155;
+  border: 2px solid #000000;
 }
 
 /* Contact */
 .contact-box {
-  border: 1px solid #334155;
+  border: 1px solid #000000;
   padding: 20px;
   border-radius: 8px;
   background: #1e293b;
@@ -163,7 +163,7 @@ form select {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-  border: 1px solid #334155;
+  border: 1px solid #00000;
   background: #0f172a;
   color: #f1f5f9;
   border-radius: 6px;
@@ -181,7 +181,7 @@ form button {
 
 /* Footer */
 footer {
-  border-top: 1px solid #334155;
+  border-top: 1px solid #000000;
   padding: 20px;
   text-align: center;
   font-size: 0.85rem;
