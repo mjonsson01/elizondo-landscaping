@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get a Quote | Elizondo Landscaping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Elizondo Landscaping</h1>
+    <nav>
+      <a href="index.html#services" data-translate="nav-services">Services</a>
+      <a href="index.html#about" data-translate="nav-about">About</a>
+      <a href="index.html#photos" data-translate="nav-work">Work</a>
+      <a href="index.html#testimonials" data-translate="nav-reviews">Reviews</a>
+      <a href="contact.html" data-translate="nav-contact">Get a Quote</a>
+    </nav>
+    <button id="lang-toggle" class="button secondary">ES</button>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h2 data-translate="contact-title">Get a Free Quote</h2>
+    <p data-translate="contact-desc">Call, text, or fill out the form below and we’ll get back to you fast.</p>
+
+    <div class="contact-box">
+      <p><strong></strong> <span data-translate="call">Call:</span> <a href="tel:2100000000">(210) 000-0000</a></p>
+      <p><strong></strong> <span data-translate="text">Text:</span> <a href="sms:2100000000">(210) 000-0000</a></p>
+      <p data-translate="service-area">Service Area: San Antonio, TX & surrounding areas</p>
+    </div>
+
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="hidden" name="_subject" value="New Landscaping Quote Request">
+
+      <label data-translate="form-name">Name</label>
+      <input type="text" name="name" required>
+
+      <label data-translate="form-phone">Phone</label>
+      <input type="tel" name="phone" required>
+
+      <label data-translate="form-address">Address (optional)</label>
+      <input type="text" name="address">
+
+      <label data-translate="form-service">Service Needed</label>
+      <select name="service">
+        <option data-translate="service-lawn">Lawn Maintenance</option>
+        <option data-translate="service-design">Landscape Design</option>
+        <option data-translate="service-irrigation">Irrigation</option>
+        <option data-translate="service-other">Other</option>
+      </select>
+
+      <label data-translate="form-message">Project Details</label>
+      <textarea name="message" placeholder="Describe what you need..." data-translate-placeholder="form-message-placeholder"></textarea>
+
+      <button type="submit" class="button" data-translate="form-submit">Get Free Quote</button>
+    </form>
+
+    <div style="margin-top:30px;">
+      <iframe 
+        src="https://www.google.com/maps?q=San+Antonio+TX&output=embed"
+        width="100%" height="300" style="border:0; border-radius:8px;">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Elizondo Landscaping</p>
+</footer>
+
+<script>
+const translations = {
+  "es": {
+    "nav-services": "Servicios",
+    "nav-about": "Acerca de",
+    "nav-work": "Trabajo",
+    "nav-reviews": "Reseñas",
+    "nav-contact": "Obtener Cotización",
+    "contact-title": "Obtener Cotización Gratis",
+    "contact-desc": "Llama, envía un mensaje o completa el formulario y nos pondremos en contacto rápidamente.",
+    "call": "Llamanos:",
+    "text": "Mandanos un mensaje:",
+    "service-area": "Área de Servicio: San Antonio, TX y sus alrededores",
+    "form-name": "Nombre",
+    "form-phone": "Numero de Teléfono",
+    "form-address": "Dirección (opcional)",
+    "form-service": "Servicio Requerido",
+    "service-lawn": "Mantenimiento del pasto y jardín",
+    "service-design": "Diseño de Jardín",
+    "service-irrigation": "Servicios de Riegacion",
+    "service-other": "Otro",
+    "form-message": "Detalles del Proyecto",
+    "form-message-placeholder": "Describa lo que necesita...",
+    "form-submit": "Pide Estimado Gratis"
+  }
+};
+
+const toggleButton = document.getElementById('lang-toggle');
+toggleButton.addEventListener('click', () => {
+  const currentLang = toggleButton.textContent === "ES" ? "es" : "en";
+  const newLang = currentLang === "es" ? "en" : "es";
+  toggleButton.textContent = newLang === "es" ? "ES" : "EN";
+
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if(translations[newLang] && translations[newLang][key]) el.textContent = translations[newLang][key];
+    else el.textContent = el.getAttribute('data-translate-original') || el.textContent;
+  });
+
+  document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-translate-placeholder');
+    if(translations[newLang] && translations[newLang][key]) el.placeholder = translations[newLang][key];
+    else el.placeholder = el.getAttribute('data-translate-placeholder-original') || el.placeholder;
+  });
+});
+
+// Save original text
+document.querySelectorAll('[data-translate]').forEach(el => {
+  el.setAttribute('data-translate-original', el.textContent);
+});
+document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+  el.setAttribute('data-translate-placeholder-original', el.placeholder);
+});
+</script>
+
+</body>
+</html>
